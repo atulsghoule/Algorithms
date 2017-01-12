@@ -41,4 +41,4 @@ def add_prime(limit):
     '''print using sieve'''
     for i in range(5,limit):
         if(prime[i]):
-            print(ia,)
+            print(i,)
