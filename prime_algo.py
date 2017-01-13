@@ -35,7 +35,7 @@ def add_prime(limit):
             j=i*i
             while(j<limit):
                 prime[j]=False
-                j+=1
+                j+=(i*i)
         i+=1
 
     '''print using sieve'''
