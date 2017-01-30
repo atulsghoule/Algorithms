@@ -1,5 +1,4 @@
 ##Sieve of Atkin fastest prime list
-import math as m
 def add_prime(limit):
     '''2 and 3 are prime which is not included'''
 
