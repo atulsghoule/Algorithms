@@ -1,6 +1,7 @@
-##Sieve of Atkin fastest prime list
+##Sieve of Atkin
+prime= [False]*(limit+1)
 def add_prime(limit):
-    prime= [False for i in range(limit)]
+    prime[2]=prime[3]=True
     x=1
     while(x*x<limit):
         y=1
@@ -25,7 +26,13 @@ def add_prime(limit):
                 j+=(i*i)
         i+=1
 
-    '''print using sieve'''
-    for i in range(5,limit):
-        if(prime[i]):
-            print(i,end=' ')
+##Sieve of Eratosthenes
+import math
+sieve=[True]*(limit+1)
+def add_prime2(limit):
+    for i in range(2,int(math.sqrt(limit))+1):
+        if(sieve[i]==True):
+            for j in range(i*2,limit+1,i):
+                sieve[j]=False
+
+        
