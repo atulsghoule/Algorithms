@@ -21,21 +21,6 @@ query.sort(compare)
 '''
     to find number of a particular number in a range
 '''
-from sys import stdin,stdout
-from math import sqrt
-block=0
-def compare(a,b):
-    if(a[0]/block!=b[0]/block):
-        return int(a[0]/block>b[0]/block)-1
-    else:
-        return int(a[1]>b[1])-1
-n=int(stdin.readline())
-array=list(map(int,stdin.readline().split()))
-block=int(sqrt(len(array)))
-q=int(stdin.readline());query=list()
-for _ in range(q):
-    query.append(list(map(int,stdin.readline().split()))+ [_] )
-query.sort(compare)
 
 store=[0]*101
 ans=[0]*q
