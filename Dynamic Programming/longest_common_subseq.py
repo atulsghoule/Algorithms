@@ -1,4 +1,4 @@
-##longest common substring
+##longest common subsequence
 def sub_string(s1,s2):
     l1,l2=len(s1),len(s2)
     temp,store=[0]*(l1+1),list()
