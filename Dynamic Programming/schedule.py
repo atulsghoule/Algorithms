@@ -2,6 +2,7 @@ from random import randint
 si=[1,3,0,5,3,5,6,8,8,2,12]
 fi=[4,5,6,7,9,9,10,11,12,14,16]
 dp={}
+# O(n^2)
 def schedule(start,end,size):
     ##dynamic programming
     if (start,end,size) in dp:
@@ -24,6 +25,3 @@ def schedule(start,end,size):
     dp[(start,end,size)]=ans
     return ans
 print schedule(0,float('inf'),len(si))
-
-    
-    
