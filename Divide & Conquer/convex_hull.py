@@ -4,7 +4,13 @@ from math import ceil,floor,log,sqrt
 from os import system
 system('clear')
 
-
+def orientation(a,b,c):
+    res = (b[1]-a[1]) * (c[0]-b[0]) - (c[1]-b[1]) * (b[0]-a[0])
+    if res == 0:
+        return 0
+    if res >0 :
+        return 1
+    return -1
 def brute_hull(points):
     hull_points,N=list(),len(points)
     for i in xrange(N):
@@ -25,7 +31,7 @@ def brute_hull(points):
             if neg==N or pos==N:
                 hull_points.append(points[i])
                 hull_points.append(points[j])
-    # Sorting the points O(N^2)
+    # Sorting the points O(N^2) anti-clock wise direction
     temp_points,temp_points_index,N =list(),list(),len(hull_points)
     for i in xrange(0,N,2):
         if hull_points[i] in temp_points_index:
@@ -62,17 +68,52 @@ def sorting_points():
     points.sort(key= lambda x:x[0])
 def divide_hull(hull_points):
     if len(hull_points)<=5:
-        return brure_hull(hull_points)
+        return brute_hull(hull_points)
     mid = len(hull_points)/2
     sub_hull_1 = divide_hull(list(hull_points[:mid]))
     sub_hull_2 = divide_hull(list(hull_points[mid:]))
     return merge_hull(sub_hull_1,sub_hull_2)
+def merge_hull(a,b):
+    n1,n2 = len(a),len(b)
+    ia,ib = 0,0
+    for i in xrange(1,n1):
+        if a[i][0] > a[ia][0]:
+            ia= i
+    inda , indb = ia,ib
+    done = False
+    while (not done):
+        done = 1
+        while orientation(b[indb], a[inda], a[(inda+1)%n1]) >=0:
+            inda = (inda + 1) % n1
+ 
+        while orientation(a[inda], b[indb], b[(n2+indb-1)%n2]) <=0:
+            indb = (n2+indb-1)%n2
+            done = 0
+    uppera = inda ; upperb = indb
+    inda = ia ; indb=ib
+    done = 0
+    g = 0
+    while not done:
+        done = 1
+        while orientation(a[inda], b[indb], b[(indb+1)%n2])>=0:
+            indb=(indb+1)%n2
+        while orientation(b[indb], a[inda], a[(n1+inda-1)%n1])<=0:
+            inda=(n1+inda-1)%n1
+            done=0
+    lowera = inda ; lowerb = indb
+    ret = list()
 
-
-
-
-def merge_hull(sub_hull_1,sub_hull_2):
-    
+    ind = uppera
+    ret.append(a[uppera])
+    while ind != lowera:
+        ind = (ind+1)%n1
+        ret.append(a[ind])
+    ind = lowerb
+    ret.append(b[lowerb])
+    while ind != upperb:
+        ind = (ind+1)%n2
+        ret.append(b[ind])
+    return ret
 
 points  = [
     [-5,5],
@@ -95,3 +136,5 @@ points  = [
 ]
 sorting_points()
 print brute_hull(points)
+print "\n\n\n"
+print divide_hull(points)
