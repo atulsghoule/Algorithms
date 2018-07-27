@@ -17,5 +17,7 @@ def matrix_expo(x,N):
 	return multiply(x,matrix_expo(x,N-1))
 A = [1,1,1,0]
 v = [1,1]
-
-
+array =[0,1,1]
+for i in xrange(1000):
+        array.append((array[-1]+array[-2])%mod)
+print multiply(matrix_expo(A,4),v)
