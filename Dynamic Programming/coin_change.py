@@ -48,9 +48,10 @@ def count_best(coins,money):
             table[j]+=table[j-coins[i]]
     return table[-1]
 
-money=500
-coins = [1,2,5,10,20,50,100]
+money=5
+coins = [1,2,3,4,5]
 print count(coins,money,len(coins))
+print dp
 print count_bottom(coins,money)
 print count_best(coins,money)
 
