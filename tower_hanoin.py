@@ -5,4 +5,4 @@ def tower(n,from_ = 'A',to_ = 'B',inter_ = 'C'):
     tower(n-1,from_,inter_,to_)
     print "Move disk %d from %c to rod %c "%(n,from_,to_)
     tower(n-1,inter_,to_,from_)
-tower(2)
+tower(14)
