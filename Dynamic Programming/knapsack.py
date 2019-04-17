@@ -22,7 +22,6 @@ def knap_bottom(capacity,length):
     table = list()
     for i in xrange(capacity+1):
         table.append([0]*(length+1))
-
     for i in xrange(1,capacity+1):
         for j in xrange(1,length+1):
             if weight[j-1] <= i:
@@ -30,10 +29,9 @@ def knap_bottom(capacity,length):
             else:
                 table[i][j]=table[i][j-1]
     return table[-1][-1]
-
-value=[60,100,120]
-weight=[10,20,30]
-capacity=50
+value=[3,4,5,6]
+weight=[2,3,4,5]
+capacity= 5
 print knap_bottom(capacity,len(value))
 print knap(capacity,len(value))
 
