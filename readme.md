@@ -16,7 +16,7 @@ This repository contains implementation of various algoritms and varios general 
     - Scheduling Task
 - Greedy
     - Scheduling Task
-- Nimber Theory
+- Number Theory
     - Finding Divisors
     - Eulers Totient & Pillai's function
     - Prime Sieve
@@ -34,9 +34,10 @@ This repository contains implementation of various algoritms and varios general 
     - Selection Sort
 - Graph
     - Dijkstra's algorithm
-- Clrs Question
 - Others
     - Mo's Algorithm
     - Tower of hanoi
     - Direct Adressing
     - Reservoir Sampling
+- Clrs Question
+    
