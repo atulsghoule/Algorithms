@@ -28,11 +28,13 @@ def knap_bottom(capacity,length):
                 table[i][j]=max(value[j-1]+table[i-weight[j-1]][j-1],table[i][j-1])
             else:
                 table[i][j]=table[i][j-1]
+    for i in table:
+        print i
     return table[-1][-1]
 value=[3,4,5,6]
 weight=[2,3,4,5]
 capacity= 5
 print knap_bottom(capacity,len(value))
-print knap(capacity,len(value))
+#print knap(capacity,len(value))
 
 

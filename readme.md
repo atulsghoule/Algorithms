@@ -1,4 +1,4 @@
-# Data Structures
+# Algorithms
 This repository contains implementation of various algoritms and varios general algorithmic question, most of the implementation is written in python and some are written in c++. 
 
 ## Content
